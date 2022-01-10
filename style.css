@@ -1,0 +1,121 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+   
+    font-family: 'Otomanopee One', sans-serif;
+}
+body{
+background: linear-gradient(to right,hsl(200,100%,50%),hsl(175,100%,50%));
+display: flex;
+justify-content: center;
+align-items: center;
+/* vertically center */
+min-height: 100vh;
+/* remove the scroll bar */
+overflow: hidden;
+}
+
+.clock{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color:rgba(255,255,255,.8);
+    border: 2px solid black;
+    position: relative;
+
+}
+.clock::after{
+    content: '';
+    position: absolute;
+    background-color: black;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left:50%;
+    z-index: 11;
+    transform: translate(-50%,-50%);
+}
+.hourhand ,.minutehand,.secondhand{
+    --rotation:0;
+    position:absolute;
+    bottom:50%;
+    left: 50%;
+   
+    border: 1px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 10;
+     transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--rotation)*1deg));
+    
+}
+ .hourhand{
+    width:10px;
+    height: 35%;
+    background-color:black;
+
+}
+.minutehand{
+    width:7px;
+    height: 40%;
+    background-color:black;
+}
+ .secondhand{
+    width:3px;
+    height: 45%;
+    background-color: red;
+
+}
+.clock .number{
+    position:absolute;
+    /* overlappinf of all numbers */
+    height: 100%;
+    width: 100%;
+    /* move number to the center of the number div */
+     text-align:center; 
+    /* position all number around the clock div */
+    /*  rotate the entire number div to respective  degree */
+    /* transform: rotate(120deg); */
+    /* var(--rotation)different value for rotation  */
+    transform: rotate(var(--rotation));
+    /* default value of rotation variable */
+    --rotation:0;
+    font-size: 1.5rem;
+}
+
+/* set individual rotation */
+.clock .number1{
+    --rotation:30deg;
+}
+.clock .number2{
+    --rotation:60deg;
+}
+.clock .number3{
+    --rotation:90deg;
+}
+.clock .number4{
+    --rotation:120deg;
+}
+.clock .number5{
+    --rotation:150deg;
+}
+.clock .number6{
+    --rotation:180deg;
+}
+.clock .number7{
+    --rotation:210deg;
+}
+.clock .number8{
+    --rotation:240deg;
+}
+.clock .number9{
+    --rotation:270deg;
+}
+.clock .number10{
+    --rotation:300deg;
+}
+.clock .number11{
+    --rotation:330deg;
+}
+
+    
